@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>AmrTravel</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="amrtravel">AmrTravel</h1>
+<p>This project was generated using <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 20.3.3.</p>
+<h2 id="nota-importante-">Nota importante 🚨</h2>
+<p>Este proyecto es parte del Curso de Herramientas y procesos de Testing para desarrolladores promovida por el <strong>INAEM</strong> en el <strong>CTA de Zaragoza</strong> e impartida por <strong>CAS Training</strong> Prof Jacinto Aisa Ibáñez</p>
+<h2 id="descripción-">Descripción 📋</h2>
+<p>El objetivo de esta prueba técnica es desarrollar una aplicación en Angular que muestre un listado de hoteles. La aplicación debe permitir a los usuarios filtrar los hoteles por nombre, categoría (estrellas), valoración y precio.</p>
+<p>El modelo de hoteles es el siguiente:</p>
+<pre><code>{ 
+    id: string;
+    name: string;
+    image: string;
+    address: string;
+    stars: number;
+    rate: number;
+    price: number;
+}
+</code></pre>
+<h2 id="requisitos-">Requisitos 🎯</h2>
+<ul>
+<li><strong>Filtros</strong>:
+<ul>
+<li><strong>Nombre</strong>: Filtrar hoteles por nombre. El filtro debe funcionar como &quot;contain&quot;. Es decir, el texto introducido debe estar presente en cualquier sitio del nombre del hotel.</li>
+<li><strong>Categoría</strong>: Filtrar hoteles por su categoría (1 a 5 estrellas). El filtro debe ser de tipo checkbox de tal manera que pueda filtrar por varias categorias al mismo tiempo (3 estrellas, 4 estrellas y 5 estrellas).</li>
+<li><strong>Valoración</strong>: Filtrar hoteles por su valoración (de 0 a 5). El filtro debe ser de tipo &quot;range&quot; (input type &quot;range&quot;) y mostrar los hoteles con una valoración superior o igual al valor del range. La valoración puede contener decimales (ej: 3.7).</li>
+<li><strong>Precio</strong>: Filtrar hoteles dentro de un rango de precios. Igual que el filtro de valoración pero esta vez se deben obtener los hoteles que tengan un precio igual o inferior al precio del range. (el rango de precios mínimo y máximo están establecidos en 50€ y 1000€)</li>
+</ul>
+</li>
+<li><strong>Paginación</strong>: Implementar una pequeña paginación que permita navegar por las diferentes páginas de resultados.</li>
+<li><strong>Diseño</strong>: Aunque no es un requisito de esta prueba, se valorará positivamente una interfaz clara y amigable.  El uso de Angular Material para estas pruebas</li>
+</ul>
+<h2 id="configuración-del-entorno-de-desarrollo-">Configuración del Entorno de Desarrollo 💻</h2>
+<ol>
+<li><strong>Instalar dependencias</strong>: Abre una terminal en el directorio del proyecto y ejecuta <code>npm install</code> para instalar todas las dependencias necesarias.</li>
+</ol>
+<h2 id="generar-la-base-de-datos-">Generar la Base de Datos 🏃</h2>
+<p>Antes de ejecutar la aplicación, necesitarás generar la base de datos:</p>
+<ol>
+<li><strong>Generar la base de datos</strong>: Ejecuta <code>npm run generate-db</code> en tu terminal. Esto ejecutará el script <code>generate-hotels-db.js</code> para generar el archivo <code>db.json</code> con datos aleatorios de hoteles.</li>
+</ol>
+<h2 id="ejecutar-la-aplicación-">Ejecutar la Aplicación 🚀</h2>
+<ul>
+<li>Ejecuta <code>npm run start</code> para iniciar el servidor de desarrollo de Angular. La aplicación estará disponible en <code>http://localhost:4200</code>. Así mismo, al levantar la aplicación, también se iniciará <code>json-server</code>, que servirá la API en <code>http://localhost:3000/hotels</code>.</li>
+<li>La aplicación se ha generado con el CLI de Angular (versión 20)</li>
+</ul>
+<h2 id="pruebas-end-to-end-con-playwright-">Pruebas End-to-End con Playwright 🎭</h2>
+<p>Este proyecto utiliza <strong><a href="https://playwright.dev/">Playwright</a></strong> para las pruebas end-to-end (E2E).<br>
+Playwright nos permite automatizar navegadores modernos (Chromium, Firefox y WebKit) para validar que la aplicación funciona correctamente desde el punto de vista del usuario final.</p>
+<h3 id="instalación-de-playwright">Instalación de Playwright</h3>
+<p>Si aún no lo tienes instalado, ejecuta:</p>
+<pre><code class="language-bash">npx playwright install
+</code></pre>
+<h2 id="ejecutar-la-aplicación--1">Ejecutar la Aplicación 🚀</h2>
+<ul>
+<li>Ejecuta <code>npm run start</code> para iniciar el servidor de desarrollo de Angular. La aplicación estará disponible en <code>http://localhost:4200</code>. Así mismo, al levantar la aplicación, también se iniciará <code>json-server</code>, que servirá la API en <code>http://localhost:3000/hotels</code>.</li>
+<li>La aplicación se ha generado con el CLI de Angular (versión 17) y no se ha realizado ninguna modificación. Es decir, se empieza con una estructura de proyecto vacía y se deja a elección del programador la estructura de ficheros del proyecto.</li>
+<li></li>
+</ul>
+<h2 id="enlaces-de-interés-">Enlaces de Interés 💡</h2>
+<ul>
+<li>
+<p><strong>Novedades de Angular</strong>: Para conocer las últimas funcionalidades y mejoras introducidas en Angular en sus últimas versiones, puedes visitar el <a href="https://blog.angular.io/">blog oficial de Angular</a>.</p>
+</li>
+<li>
+<p><strong>faker-js</strong>: Hemos utilizado <code>faker-js</code> para generar datos falsos de hoteles de manera sencilla. Es muy útil para el desarrollo y pruebas de aplicaciones. Puedes encontrar más información y la documentación en el <a href="https://github.com/faker-js/faker">repositorio de GitHub de faker-js</a>.</p>
+</li>
+<li>
+<p><strong>json-server</strong>: Hemos utilizado <code>json-server</code> para generar de una manera rápida un servidor REST API completo con operaciones CRUD a partir de un archivo JSON. Es útil para mockear APIs durante el desarrollo de aplicaciones frontend. Para más detalles, visita el <a href="https://github.com/typicode/json-server">repositorio de GitHub de json-server</a>.</p>
+</li>
+<li>
+<p><strong>Playwright</strong>: Herramienta utilizada para realizar pruebas end-to-end (E2E) automatizadas en navegadores modernos (Chromium, Firefox y WebKit). Más información y documentación oficial en la <a href="https://playwright.dev/">web de Playwright</a>.</p>
+</li>
+</ul>
+
+            
+            
+        </body>
+        </html>
