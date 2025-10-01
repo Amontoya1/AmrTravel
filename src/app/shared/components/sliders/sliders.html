@@ -1,0 +1,29 @@
+<div class="slider-container">
+  <label for="slider">{{ type === 'rating' ? 'Valoración' : 'Precio' }}:</label>
+  <input
+    id="slider"
+    type="range"
+    [attr.min]="min"
+    [attr.max]="max"
+    [attr.step]="step"
+    [(ngModel)]="value"
+    (input)="onValueChange($event)"
+    [attr.aria-label]="type === 'rating' ? 'Valoración' : 'Precio'"
+    [attr.aria-valuemin]="min"
+    [attr.aria-valuemax]="max"
+    [attr.aria-valuenow]="value"
+    [attr.aria-valuetext]="
+      type === 'price' ? (value | currency : 'EUR' : 'symbol') : (value | number : '1.1-1')
+    "
+  />
+
+  <span>
+    <mat-icon *ngIf="type === 'rating'">star_half</mat-icon>
+    <span *ngIf="type === 'price'">
+      {{ value | currency : 'EUR' : 'symbol' }}
+    </span>
+    <span *ngIf="type === 'rating'">
+      {{ value | number : '1.1-1' }}
+    </span>
+  </span>
+</div>

@@ -1,0 +1,32 @@
+.slider-container {
+  display: flex;
+
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  > span {
+    gap: 15px;
+
+    margin-left: 10px;
+    flex-direction: row-reverse;
+  }
+}
+
+.slider-container label {
+  margin-right: 10px;
+}
+
+.slider-container span {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.slider-container mat-icon {
+  margin-right: 5px;
+}
+
+.mat-icon {
+  font-size: 20px;
+  color: rgb(15, 4, 63);
+}

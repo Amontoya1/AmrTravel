@@ -1,0 +1,17 @@
+<mat-toolbar role="banner" aria-label="Barra de navegación principal">
+  <span>Hotel Booking</span>
+  <div class="button-container" role="navigation" aria-label="Opciones de navegación">
+    <button mat-flat-button aria-label="Buscar vuelos" (click)="openModal()">
+      <mat-icon aria-hidden="true">flight</mat-icon>
+      Vuelos
+    </button>
+    <button mat-flat-button color="accent" aria-label="Buscar hoteles" (click)="openModal()">
+      <mat-icon aria-hidden="true">hotel</mat-icon>
+      Hoteles
+    </button>
+    <button mat-flat-button aria-label="Buscar coches de alquiler" (click)="openModal()">
+      <mat-icon aria-hidden="true">directions_car</mat-icon>
+      Coches de Alquiler
+    </button>
+  </div>
+</mat-toolbar>

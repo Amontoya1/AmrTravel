@@ -1,0 +1,77 @@
+<amr-nav role="navigation" aria-label="Navegación principal"></amr-nav>
+
+<main class="content">
+  <section class="filters-section" aria-labelledby="filters-section-title">
+    <h2 id="filters-section-title">Filtros</h2>
+
+    <amr-filters
+      (nameFilterChanged)="updateNameFilter($event)"
+      (priceChange)="updatePriceFilter($event)"
+    ></amr-filters>
+
+    <div class="checkbox-container" aria-label="Filtrar por calificación">
+      <label>Calificación:</label>
+      <amr-checkbox
+        *ngFor="let rating of [1, 2, 3, 4, 5]"
+        [label]="rating + ' estrellas'"
+        [checked]="selectedRatings().includes(rating)"
+        (change)="handleCheckboxChange(rating, $event)"
+      ></amr-checkbox>
+    </div>
+  </section>
+
+  <section class="hotels-section" aria-labelledby="hotels-section-title">
+    <h2 id="hotels-section-title">Resultados de Hoteles</h2>
+
+    <div *ngIf="filteredHotels().length === 0" class="no-hotels" role="alert">
+      No se han encontrado hoteles
+    </div>
+
+    <div class="hotel-container">
+      <mat-card *ngFor="let hotel of paginatedHotels()">
+        <mat-card-header>
+          <mat-card-title>{{ hotel.name }}</mat-card-title>
+        </mat-card-header>
+
+        <img mat-card-image [src]="hotel.image" [alt]="'Foto de ' + hotel.name" />
+
+        <mat-card-content>
+          <p>Dirección: {{ hotel.address }}</p>
+          <p>
+            Estrellas:
+            <mat-icon *ngFor="let star of getStarIcons(hotel.stars)" aria-hidden="true">
+              {{ star }}
+            </mat-icon>
+          </p>
+          <p>
+            Valoración:
+            <mat-progress-bar
+              mode="determinate"
+              [value]="(hotel.rate / 5) * 100"
+              aria-valuenow="{{ hotel.rate }}"
+              aria-valuemin="0"
+              aria-valuemax="5"
+            ></mat-progress-bar>
+            <span>{{ hotel.rate }} / 5</span>
+          </p>
+          <p>Precio: {{ hotel.price | currency }}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="openDetails(hotel.id)">Ver detalles</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="pagination-container" aria-label="Paginación">
+      <amr-pagination
+        [length]="filteredHotels().length"
+        [pageSize]="itemsPerPage()"
+        [pageSizeOptions]="[5, 10, 15, 20]"
+        (pageChange)="onPageChange($event)"
+      ></amr-pagination>
+    </div>
+  </section>
+</main>
+
+<amr-footer></amr-footer>

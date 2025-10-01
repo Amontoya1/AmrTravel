@@ -1,0 +1,45 @@
+.filters-container {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.checkbox-container {
+  margin-top: 20px;
+}
+
+.mat-checkbox {
+  display: block;
+  margin: 5px 0;
+}
+
+mat-form-field,
+app-sliders {
+  flex: 1 1 auto;
+  max-width: 400px;
+}
+
+@media (max-width: 600px) {
+  .filters-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  mat-form-field,
+  app-sliders {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  mat-form-field:last-child,
+  app-sliders:last-child {
+    margin-bottom: 0;
+  }
+}

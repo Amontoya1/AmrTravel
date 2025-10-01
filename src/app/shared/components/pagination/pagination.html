@@ -1,0 +1,10 @@
+<mat-paginator
+  *ngIf="showPaginator"
+  [attr.aria-label]="'Paginator'"
+  [attr.aria-live]="'polite'"
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>

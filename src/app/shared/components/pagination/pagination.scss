@@ -1,0 +1,24 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
+
+.mat-paginator {
+  height: 60px;
+}

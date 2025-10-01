@@ -1,0 +1,31 @@
+<div>
+  <mat-card class="modal-card">
+    <mat-card-header>
+      <mat-card-title>{{ title() }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="avatar-container">
+        <img class="avatar-image" [src]="imageSrc()" alt="Andrea" />
+      </div>
+
+      <ul class="message-list">
+        <li *ngFor="let msg of messages()">{{ msg }}</li>
+      </ul>
+    </mat-card-content>
+
+    <mat-card-actions class="button-container">
+      <button mat-stroked-button color="primary" (click)="onClose()" aria-label="Cerrar diálogo">
+        Cerrar
+      </button>
+      <button
+        mat-flat-button
+        color="accent"
+        (click)="onBack()"
+        aria-label="Volver a la lista de hoteles"
+      >
+        Volver
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

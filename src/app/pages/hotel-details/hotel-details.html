@@ -1,0 +1,41 @@
+<div class="details-container" *ngIf="hotel">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ hotel.name }}</mat-card-title>
+      <mat-card-subtitle>{{ hotel.address }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img [src]="hotel.image" [alt]="'Foto del ' + hotel.name" class="hotel-image" />
+
+    <mat-card-content>
+      <p>
+        <strong>Estrellas:</strong>
+        <mat-icon *ngFor="let star of getStarIcons(hotel.stars)" aria-hidden="true">
+          {{ star }}
+        </mat-icon>
+      </p>
+
+      <p>
+        <strong>Valoración:</strong>
+        <mat-progress-bar
+          mode="determinate"
+          [value]="(hotel.rate / 5) * 100"
+          aria-valuenow="{{ hotel.rate }}"
+          aria-valuemin="0"
+          aria-valuemax="5"
+        >
+        </mat-progress-bar>
+        <span>{{ hotel.rate }} / 5</span>
+      </p>
+
+      <p><strong>Precio:</strong> {{ hotel.price | currency }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="goToHotelList()">
+        <mat-icon>hotel</mat-icon>
+        Volver a la lista
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

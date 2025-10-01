@@ -1,0 +1,36 @@
+<div class="filters-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre del Hotel</mat-label>
+    <input
+      matInput
+      (input)="onNameChange($event)"
+      placeholder="Buscar por nombre"
+      aria-label="Buscar por nombre del hotel"
+    />
+    <mat-icon matSuffix aria-hidden="true">search</mat-icon>
+  </mat-form-field>
+
+  <amr-sliders
+    [min]="0"
+    [max]="5"
+    [step]="0.1"
+    [value]="ratingFilter"
+    type="rating"
+    (valueChange)="onRatingChange($event)"
+    aria-label="Filtrar por calificación de 0 a 5"
+    aria-live="polite"
+  >
+  </amr-sliders>
+
+  <amr-sliders
+    [min]="50"
+    [max]="1000"
+    [step]="10"
+    [value]="priceFilter"
+    type="price"
+    (valueChange)="onPriceChange($event)"
+    aria-label="Filtrar por precio de 50 a 1000"
+    aria-live="polite"
+  >
+  </amr-sliders>
+</div>

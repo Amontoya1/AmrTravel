@@ -1,0 +1,92 @@
+.content {
+  padding: 40px;
+}
+
+.filters-section {
+  text-align: center;
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+app-filters {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.hotel-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+  }
+}
+
+mat-card {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+mat-card img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+mat-icon {
+  color: #ffd700;
+  font-size: 16px;
+}
+
+mat-progress-bar {
+  margin: 10px 0;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.no-hotels {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-container {
+  margin-top: 20px;
+}
+
+.mat-checkbox {
+  display: block;
+  margin: 5px 0;
+}
